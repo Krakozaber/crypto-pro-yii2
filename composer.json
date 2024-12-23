@@ -1,0 +1,23 @@
+{
+  "name": "krakozaber/crypto-pro-yii2",
+  "description": "Подписание документов с помощью КриптоПро ЭЦП Browser plug-in",
+  "type": "component",
+  "homepage": "https://pirs.online/",
+  "authors": [
+    {
+      "name": "Kirill Petrov",
+      "email": "kirill.petrov@bimit.ru"
+    }
+  ],
+  "require": {
+    "php": ">=8",
+    "yiisoft/yii2": "~2.0.0",
+    "yiisoft/yii2-bootstrap5": "~2.0.0"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+        "krakozaber\\crypto-pro-yii2\\": ""
+        }
+  }
+}
