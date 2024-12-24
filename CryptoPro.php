@@ -10,26 +10,68 @@ use function key_exists;
 class CryptoPro extends Widget
 {
 
+    /**
+     * ID модального окна по умолчанию
+     */
     const string DEFAULT_MODAL_ID = 'crypto-pro-modal';
 
+    /**
+     * Атрибут модели для сохранения подписи по умолчанию
+     */
     const string DEFAULT_MODEL_ATTR = 'signature';
 
+    /**
+     * Ссылка на файл для скачивания
+     * @var string
+     */
     public string $fileUrl = '';
 
+    /**
+     * Контент файла в base64
+     * @var string
+     */
     public string $base64content = '';
 
+    /**
+     * url на action который принимает подпись
+     * @var string
+     */
     public string $signAction = '';
 
+    /**
+     * ID формы отправки
+     * @var string
+     */
     public string $formId = 'crypto-pro-form';
 
+    /**
+     * Модель для формы
+     * @var Model|null
+     */
     public ?Model $model = null;
 
+    /**
+     * Атрибут модели для подписи
+     * @var string
+     */
     public string $attribute = '';
 
+    /**
+     * Откреплённая подпись
+     * @var bool
+     */
     public bool $detachedSign = false;
 
+    /**
+     * Подписать хеш
+     * @var bool
+     */
     public bool $signHash = false;
 
+    /**
+     * Параметры кнопки для начала процесса подписания Html::a($text, $options)
+     * @var array['text' => string, 'options' => []]
+     */
     public array $signBtn = [
         'text' => 'Подписать',
         'options' => [
@@ -40,11 +82,21 @@ class CryptoPro extends Widget
             ],
         ],
     ];
+
+    /**
+     * options модального окна для выбора ключа подписания
+     * @var array
+     */
     public array $modalOptions = [
         'id' => self::DEFAULT_MODAL_ID,
         'title' => 'Подписать',
     ];
 
+
+    /**
+     * Кнопка для подписания в модальном окне Html::submitButton($text, $options)
+     * @var array ['text' => string, 'options' => []]
+     */
     public array $modalSubmitBtn = [
         'text' => 'Подписать КЭП',
         'options' => [
@@ -52,6 +104,11 @@ class CryptoPro extends Widget
         ],
     ];
 
+    /**
+     * Инициализация из атрибутов
+     * @return void
+     * @throws InvalidConfigException
+     */
     public function init(): void
     {
         if ($this->model === null) {
@@ -73,6 +130,10 @@ class CryptoPro extends Widget
         $this->addInitJsEvent();
     }
 
+    /**
+     * Заполнение обязательных атрибутов, если они не указаны
+     * @return void
+     */
     protected function fixBsAttributes(): void
     {
         $this->signBtn['options']['data']['bs-target'] = '#' . $this->modalOptions['id'];
@@ -83,6 +144,10 @@ class CryptoPro extends Widget
         }
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function run(): string
     {
         $view = $this->getView();
@@ -99,6 +164,10 @@ class CryptoPro extends Widget
         ]);
     }
 
+    /**
+     * Прикрепление скрипта инициализации JS к модальному окну
+     * @return void
+     */
     public function addInitJsEvent(): void
     {
         $js = new JsExpression("(event) => init()");
@@ -112,6 +181,10 @@ class CryptoPro extends Widget
         }
     }
 
+    /**
+     * Генерация JS в соответствии с заданными параметрами
+     * @return JsExpression
+     */
     protected function createJs(): JsExpression
     {
         $signatureFieldId = Html::getInputId($this->model, $this->attribute);
