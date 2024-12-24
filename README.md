@@ -16,7 +16,7 @@
 `signHash` - Подписать хеш \
 `signBtn` - Параметры кнопки для начала процесса подписания ['text' => string, 'options' => array()] для Html::a($text, $options) \
 `modalSubmitBtn` - Кнопка для подписания в модальном окне ['text' => string, 'options' => array()] для Html::submitButton($text, $options) \
-`modalOptions` - options модального окна для выбора ключа подписания \
+`modalOptions` - options модального окна для выбора ключа подписания
 
 ### Пример использования
 
