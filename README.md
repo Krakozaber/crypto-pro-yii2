@@ -6,17 +6,17 @@
 
 ### Параметры
 
-`fileUrl` - Ссылка на файл для скачивания
-`base64content` - Контент файла в base64
-`signAction` - url на action который принимает подпись
-`formId` - ID формы отправки
-`model` - Модель для формы
-`attribute` - Атрибут модели для подписи
-`detachedSign` - Откреплённая подпись
-`signHash` - Подписать хеш
-`signBtn` - Параметры кнопки для начала процесса подписания ['text' => string, 'options' => array()] для Html::a($text, $options);
-`modalSubmitBtn` - Кнопка для подписания в модальном окне ['text' => string, 'options' => array()] для Html::submitButton($text, $options)
-`modalOptions` - options модального окна для выбора ключа подписания
+`fileUrl` - Ссылка на файл для скачивания \
+`base64content` - Контент файла в base64 \
+`signAction` - url на action который принимает подпись \
+`formId` - ID формы отправки \
+`model` - Модель для формы \
+`attribute` - Атрибут модели для подписи \
+`detachedSign` - Откреплённая подпись \
+`signHash` - Подписать хеш \
+`signBtn` - Параметры кнопки для начала процесса подписания ['text' => string, 'options' => array()] для Html::a($text, $options) \
+`modalSubmitBtn` - Кнопка для подписания в модальном окне ['text' => string, 'options' => array()] для Html::submitButton($text, $options) \
+`modalOptions` - options модального окна для выбора ключа подписания \
 
 ### Пример использования
 
